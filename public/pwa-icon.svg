@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Twiddler 4</title>
+  <desc id="description">A cropped matrix of round and elongated chorded keyboard buttons.</desc>
+  <rect width="512" height="512" rx="112" fill="#1f6feb" />
+
+  <g fill="#f8fbff">
+    <!-- Three circular keys -->
+    <circle cx="94" cy="64" r="40" />
+    <circle cx="256" cy="64" r="40" />
+    <circle cx="418" cy="64" r="40" />
+
+    <!-- Vertical long keys; all rows share the same 192-unit center spacing. -->
+    <rect x="56" y="176" width="76" height="160" rx="38" />
+    <rect x="218" y="176" width="76" height="160" rx="38" />
+    <rect x="380" y="176" width="76" height="160" rx="38" />
+
+    <!-- Repeated vertical keys, clipped by the bottom edge. -->
+    <rect x="56" y="368" width="76" height="160" rx="38" />
+    <rect x="218" y="368" width="76" height="160" rx="38" />
+    <rect x="380" y="368" width="76" height="160" rx="38" />
+  </g>
+</svg>

@@ -1,0 +1,148 @@
+# source: https://raw.githubusercontent.com/CoohLand/CoolHand/master/twiddler.cfg
+
+[config]
+repeat = true
+mode = chord
+direct = false
+haptic = false
+sticky_num = true
+sticky_alt = false
+sticky_ctrl = false
+sticky_shift = false
+nav_up_direction = north
+nav_invert_x = false
+nav_sensitivity = 4
+idle_time = 900
+repeat_delay = 1000
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+
+F0L = mouse_left
+F0M = mouse_middle
+F0R = mouse_right
+
+[mappings]
+T023 = system:sleep
+
+T0F1L = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1R = system:show_keyboard_leds
+T0F4L = system:show_cycle_nav_mode
+T0F4M = system:show_cycle_config
+T0F4R = system:show_cycle_bluetooth_host
+T1F1L = up
+T1F1M = 5
+T1F1R = rctrl+p
+T1F2L = down
+T1F2M = period
+T1F2R = rctrl+n
+T1F3L = right
+T1F3M = left
+T1F3R = rctrl+a
+
+T14F4R = system:clear_bluetooth_hosts
+
+T1F1M2M = 6
+T1F1R2R = page_up
+T1F1R4R = rctrl+c
+T1F2L3L = rctrl+r
+T1F2M3M = rctrl+d
+T1F2R3R = page_down
+T1F3L4L = 9
+T1F3R4R = 2
+T4F1L2L = underscore
+
+T1F1L2L3L = esc
+T1F1L3L4L = rctrl+v
+T1F1M2M3M = 7
+T1F1M3M4M = rctrl+t
+T1F1R2R3R = rctrl+b
+T1F1R3R4R = rctrl+z
+T1F2L3L4L = 0
+T1F2L3R4L = Y e a h comma space w e l l comma space s o m e t i m e s space n o t h i n quote space c a n space b e space a space r e a l space c o o l space h a n d period space space space g i t period i o slash v 7 X I x space space space
+T1F2R3R4R = 3
+
+T1F1L2L3L4L = 1
+T1F1M2M3M4M = 8
+T1F1R2R3R4R = 4
+
+F1L = o
+F1M = e
+F1R = i
+F2L = r
+F2M = t
+F2R = n
+F3L = s
+F3M = h
+F3R = a
+F4L = space
+F4M = num_lock
+F4R = backspace
+
+F1L2L = minus
+F1L3L = k
+F1L4L = w
+F1L4M = rctrl+b
+F1L4R = slash
+F1M2L = semicolon
+F1M2M = period
+F1M2R = comma
+F1M3L = right_parenthesis
+F1M3M = l
+F1M3R = left_parenthesis
+F1M4L = p
+F1M4M = m
+F1M4R = q
+F1R2M = hash
+F1R2R = quote
+F1R3L = ampersand
+F1R3R = j
+F1R4L = backslash
+F1R4M = rctrl+c
+F1R4R = c
+F2L3L = u
+F2L3M = pipe
+F2L4L = tilde
+F2M3L = underscore
+F2M3M = d
+F2M3R = percent
+F2M4M = question
+F2R3M = exclamation
+F2R3R = f
+F2R4R = backtick
+F3L4L = at
+F3M4L = dollar
+F3M4M = colon
+F3M4R = caret
+F3R4R = double_quote
+
+F1L2L3L = y
+F1L2L4L = plus
+F1L2M3M = enter
+F1L2M3R = asterisk
+F1L3L4L = y o u space
+F1M2L3L = right_bracket
+F1M2M3L = right_curly_bracket
+F1M2M3M = x
+F1M2M3R = left_curly_bracket
+F1M2M4M = equal
+F1M2R3R = left_bracket
+F1M3L4L = greater_than
+F1M3M4M = t h e space
+F1M3R4R = less_than
+F1R2R3R = b
+F1R2R4R = I space
+F1R3R4R = Z
+F2L3L4L = v
+F2M3M4M = g
+F2R3R4R = z
+
+F1L2L3L4L = esc
+F1L2M3M4M = t i o n space
+F1M2M3M4M = tab
+F1M2R3R4R = a n d space
+F1R2R3R4R = i n g space

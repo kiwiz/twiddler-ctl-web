@@ -1,0 +1,167 @@
+# source: https://raw.githubusercontent.com/GregDavidson/TwiddlerGeekHand/master/twiddler.cfg
+
+[config]
+repeat = true
+mode = chord
+direct = true
+haptic = false
+sticky_num = false
+sticky_alt = false
+sticky_ctrl = false
+sticky_shift = false
+nav_up_direction = north
+nav_invert_x = false
+nav_sensitivity = 0
+idle_time = 600
+repeat_delay = 1270
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+
+F0L = mouse_left
+F0M = mouse_middle
+F0R = mouse_right
+
+[mappings]
+T023 = system:sleep
+
+T0F1L = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1R = system:show_keyboard_leds
+T0F4L = system:show_cycle_nav_mode
+T0F4M = system:show_cycle_config
+T0F4R = system:show_cycle_bluetooth_host
+T1F1L = f1
+T1F1M = 1
+T1F1R = up
+T1F2L = f2
+T1F2M = 2
+T1F2R = down
+T1F3L = f4
+T1F3M = 4
+T1F3R = right
+T1F4L = f8
+T1F4M = 8
+T1F4R = left
+
+T14F4R = system:clear_bluetooth_hosts
+
+T1F1L2L = f3
+T1F1L3L = f5
+T1F1L4L = f9
+T1F1M2M = 3
+T1F1M3M = 5
+T1F1M4M = 9
+T1F1R2R = page_up
+T1F1R3R = keypad_plus
+T1F1R4R = keypad_asterisk
+T1F2L3L = f6
+T1F2L4L = f10
+T1F2M3M = 6
+T1F2M4M = 1 0
+T1F2R3R = keypad_minus
+T1F2R4R = keypad_slash
+T1F3L4L = f12
+T1F3M4M = space
+T1F3R4R = page_down
+T4F1L2L = underscore
+T4F1L2M = caps_lock
+
+T1F1L2L3L = f7
+T1F1L2M3M = num_lock
+T1F1L3L4L = f11
+T1F1M2M3M = 7
+T1F1M2M4M = 1 1
+T1F1M3M4M = comma
+T1F1R2R3R = home
+T1F1R2R4R = keypad_period
+T1F1R3R4R = keypad_equal
+T1F2L3L4L = insert
+T1F2M3M4M = backspace
+T1F2R3R4R = end
+T4F1L2M3M = caps_lock
+
+T1F1L2L3L4L = delete
+T1F1M2M3M4M = 0
+T1F1R2R3R4R = keypad_enter
+
+F1L = o
+F1M = e
+F1R = i
+F2L = r
+F2M = t
+F2R = n
+F3L = s
+F3M = h
+F3R = a
+F4L = space
+F4M = num_lock
+F4R = backspace
+
+F1L2L = minus
+F1L2M = caps_lock
+F1L3L = k
+F1L4L = w
+F1L4M = rctrl+b
+F1L4R = backslash
+F1M2L = semicolon space
+F1M2M = period
+F1M2R = comma space
+F1M3L = left_parenthesis
+F1M3M = l
+F1M3R = right_parenthesis
+F1M4L = p
+F1M4M = m
+F1M4R = q
+F1R2M = hash
+F1R2R = quote
+F1R3L = ampersand
+F1R3R = j
+F1R4L = slash
+F1R4M = rctrl+c
+F1R4R = c
+F2L3L = u
+F2L3M = pipe
+F2L4L = tilde
+F2M3L = underscore
+F2M3M = d
+F2M3R = percent
+F2M4M = question
+F2R3M = exclamation
+F2R3R = f
+F2R4R = backtick
+F3L4L = at
+F3M4L = dollar
+F3M4M = colon space
+F3M4R = caret
+F3R4R = double_quote
+
+F1L2L3L = y
+F1L2L4L = plus
+F1L2M3M = enter
+F1L2M3R = asterisk
+F1L3L4L = y o u
+F1M2L3L = left_bracket
+F1M2M3L = left_curly_bracket
+F1M2M3M = x
+F1M2M3R = right_curly_bracket
+F1M2M4M = equal
+F1M2R3R = right_bracket
+F1M3L4L = less_than
+F1M3M4M = t h e
+F1M3R4R = greater_than
+F1R2R3R = b
+F1R2R4R = I space
+F1R3R4R = Z
+F2L3L4L = v
+F2M3M4M = g
+F2R3R4R = z
+
+F1L2L3L4L = esc
+F1L2M3M4M = t i o n space
+F1M2M3M4M = tab
+F1M2R3R4R = space a n d space
+F1R2R3R4R = i n g space

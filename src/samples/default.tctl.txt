@@ -1,0 +1,209 @@
+# source: https://tuner.mytwiddler.com
+
+[config]
+repeat = True
+mode = chord
+direct = False
+haptic = True
+sticky_num = False
+sticky_alt = False
+sticky_ctrl = False
+sticky_shift = False
+nav_up_direction = north
+nav_invert_x = False
+nav_sensitivity = 4
+idle_time = 600
+repeat_delay = 1000
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+F0R = mouse_right
+F0M = mouse_middle
+F0L = mouse_left
+
+[mappings]
+F1R = a
+F1M = e
+F1L = space
+F2R = b
+F2M = f
+F2L = delete
+F3R = c
+F3M = g
+F3L = backspace
+F4R = d
+F4M = h
+F4L = enter
+
+F1R2R = period
+F1M2R = r
+F1L2R = i
+F1R2M = quote
+F1M2M = u
+F1L2M = l
+F1R2L = lshift+slash
+F1M2L = x
+F1L2L = o
+
+F1R3R = comma
+F1M3R = s
+F1L3R = j
+F1R3M = lshift+quote
+F1M3M = v
+F1L3M = m
+F1R3L = exclamation
+F1M3L = y
+F1L3L = p
+
+F1R4R = semicolon
+F1M4R = t
+F1L4R = k
+F1R4M = a n d space
+F1M4M = w
+F1L4M = n
+F1R4L = minus
+F1M4L = z
+F1L4L = q
+
+F2R3R = t h e space
+F2M3R = up
+F2L3R = lshift+4
+F2R3M = o f space
+F2M3M = left
+#####
+F2R3L = lshift+0
+F2M3L = down
+F2L3L = lshift+9
+
+F2R4R = t o space
+F2M4R = e d space
+#####
+F2R4M = i n
+F2M4M = right
+F2L4M = i o n space
+F2R4L = lshift+minus
+F2M4L = lshift+3
+F2L4L = lshift+7
+
+F3R4R = page_up
+F3M4R = equal
+F3L4R = at
+F3R4M = lshift+5
+F3M4M = i n g space
+F3L4M = lshift+8
+F3R4L = colon
+F3M4L = lshift+equal
+F3L4L = page_down
+
+F1R2R3R = esc
+F1M2M3M = slash
+F1L2L3L = backslash
+
+F1M2M4M = tab
+
+F1R3R4R = a n t space
+F1M3M4M = e n t space
+#######
+F2R3R4R = home
+F2L3L4L = end
+
+F1R2R3R4R = caps_lock
+F1M2M3M4M = num_lock
+T12F1L2L4L = scroll_lock
+
+T1F1R = 1
+T1F1M = 5
+T1F1L = 9
+T1F2R = 2
+T1F2M = 6
+T1F2L = 0
+T1F3R = 3
+T1F3M = 7
+T1F4R = 4
+T1F4M = 8
+
+T12F1R = f1
+T12F1M = f5
+T12F1L = f9
+T12F2R = f2
+T12F2M = f6
+T12F2L = f10
+T12F3R = f3
+T12F3M = f7
+T12F3L = f11
+T12F4R = f4
+T12F4M = f8
+T12F4L = f12
+
+T1F1R2M = left_bracket
+T1F1R4M = right_bracket
+
+T3F1R = lctrl+a
+T3F1M = lctrl+e
+T3F2R = lctrl+b
+T3F2M = lctrl+f
+T3F3R = lctrl+c
+T3F3M = lctrl+g
+T3F4R = lctrl+d
+T3F4M = lctrl+h
+
+T12F1L2R = lalt+f1
+T12F1L2M = lalt+f4
+T12F1L2L = lalt+f7
+T12F1L3R = lalt+f2
+T12F2L3R = lalt+f10
+T12F1L3M = lalt+f5
+T12F2L3M = lalt+f12
+T12F1L3L = lalt+f8
+T12F1L4R = lalt+f3
+T12F2L4R = lalt+f11
+T12F1L4M = lalt+f6
+T12F1L4L = lalt+f9
+
+T3F1M2R = lctrl+r
+T3F1L2R = lctrl+i
+T3F1M2M = lctrl+u
+T3F1L2M = lctrl+l
+T3F1M2L = lctrl+x
+T3F1L2L = lctrl+o
+T3F1M3R = lctrl+s
+T3F1L3R = lctrl+j
+T3F1M3M = lctrl+v
+T3F1L3M = lctrl+m
+T3F1M3L = lctrl+y
+T3F1L3L = lctrl+p
+T3F1M4R = lctrl+t
+T3F1L4R = lctrl+k
+T3F1M4M = lctrl+w
+T3F1L4M = lctrl+n
+T3F1M4L = lctrl+z
+T3F1L4L = lctrl+q
+
+T1F1R3R = greater_than
+T1F1M4L = less_than
+
+T1F1L2L3R = question
+T1F1L2L3M = tilde
+T3F1L2L3M = insert
+T1F1L2M = caret
+T1F1R3L = backtick
+T4F1M2M4M = lshift+tab
+
+T1F1L2L4R = right_curly_bracket
+T1F1R4L = left_curly_bracket
+
+T1F4L = enter
+T4F4L = enter
+
+# system
+T0F1R = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1L = system:show_keyboard_leds
+T023 = system:sleep
+T0F4R = system:show_cycle_bluetooth_host
+T0F4M = system:show_cycle_config
+T0F4L = system:show_cycle_nav_mode
+T14F4R = system:clear_bluetooth_hosts

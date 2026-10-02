@@ -1,0 +1,7 @@
+[twiddler]
+layout=qwerty
+
+[configs]
+1=default.tctl.txt
+2=default.tctl.txt
+3=default.tctl.txt

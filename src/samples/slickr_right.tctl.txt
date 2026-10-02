@@ -1,0 +1,98 @@
+# source: https://raw.githubusercontent.com/benbongalon/slickr-layout/master/slickr_RH_twiddler.cfg
+
+[config]
+repeat = true
+mode = chord
+direct = true
+haptic = false
+sticky_num = false
+sticky_alt = false
+sticky_ctrl = false
+sticky_shift = false
+nav_up_direction = north
+nav_invert_x = false
+nav_sensitivity = 0
+idle_time = 600
+repeat_delay = 1270
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+
+F0L = mouse_left
+F0M = mouse_middle
+F0R = mouse_right
+
+[mappings]
+T023 = system:sleep
+
+T0F1L = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1R = system:show_keyboard_leds
+T0F4L = system:show_cycle_nav_mode
+T0F4M = system:show_cycle_config
+T0F4R = system:show_cycle_bluetooth_host
+
+T14F4R = system:clear_bluetooth_hosts
+
+F1L = h
+F1M = t
+F1R = s
+F2L = a
+F2M = e
+F2R = i
+F3L = l
+F3M = r
+F3R = o
+F4L = f
+F4M = d
+F4R = n
+
+F1LM = t h
+F2LM = e a
+F2MR = i e
+F3LM = r l
+F3MR = o r
+F4MR = n d
+
+F1L2L = 3
+F1L2M = 2
+F1L2R = 1
+F1L3L = 6
+F1L3M = 5
+F1L3R = 4
+F1L4L = 9
+F1L4M = 8
+F1L4R = 7
+F1M2M = tab
+F1M2R = backspace
+F1M4R = n t
+F1R2R = space
+F1R3R = 0
+F2L3L = b
+F2L4L = c k
+F2M3M = c
+F2R3L = w
+F2R3M = v
+F2R3R = u
+F2R4L = x
+F2R4M = z
+F2R4R = y
+F3L4L = q u
+F3M4M = p
+F3R4R = m
+
+F2MR3L = w h
+
+F1L2L3L = minus
+F1L2M3M = period
+F1L2R3R = 0
+F1L3L4L = equal
+F1L3M4M = greater_than
+F1L3R4R = less_than
+F1R2R3R = enter
+F2L3L4L = k
+F2M3M4M = j
+F2R3R4R = g

@@ -1,0 +1,35 @@
+# source: https://tuner.mytwiddler.com
+
+[config]
+repeat = True
+mode = chord
+direct = False
+haptic = True
+sticky_num = False
+sticky_alt = False
+sticky_ctrl = False
+sticky_shift = False
+nav_up_direction = north
+nav_invert_x = False
+nav_sensitivity = 4
+idle_time = 600
+repeat_delay = 1000
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+F0R = mouse_right
+F0M = mouse_middle
+F0L = mouse_left
+
+[mappings]
+T0F1R = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1L = system:show_keyboard_leds
+T023 = system:sleep
+T0F4R = system:show_cycle_bluetooth_host
+T0F4M = system:show_cycle_config
+T0F4L = system:show_cycle_nav_mode
+T14F4R = system:clear_bluetooth_hosts

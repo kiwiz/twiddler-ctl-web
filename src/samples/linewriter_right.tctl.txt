@@ -1,0 +1,157 @@
+# source: https://raw.githubusercontent.com/nonwal/linewriter/main/right/twiddler.cfg
+
+[config]
+repeat = true
+mode = chord
+direct = true
+haptic = false
+sticky_num = false
+sticky_alt = false
+sticky_ctrl = false
+sticky_shift = false
+nav_up_direction = north
+nav_invert_x = false
+nav_sensitivity = 0
+idle_time = 600
+repeat_delay = 1270
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+
+F0L = mouse_left
+F0M = mouse_middle
+F0R = mouse_right
+
+[mappings]
+T023 = system:sleep
+
+T0F1L = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1R = system:show_keyboard_leds
+T0F4L = system:show_cycle_nav_mode
+T0F4M = system:show_cycle_config
+T0F4R = system:show_cycle_bluetooth_host
+T1F1L = 9
+T1F1M = 8
+T1F1R = 7
+T1F2L = 6
+T1F2M = 5
+T1F2R = 4
+T1F3L = 3
+T1F3M = 2
+T1F3R = 1
+T1F4L = equal
+T1F4M = plus
+T1F4R = 0
+
+T14F4R = system:clear_bluetooth_hosts
+
+T1F1L2L = greater_than
+T1F1L3L = right_bracket
+T1F1L4L = underscore
+T1F1M2M = up
+T1F1M3M = backslash
+T1F1M4M = caret
+T1F1R2R = less_than
+T1F1R3R = left_bracket
+T1F1R4R = percent
+T1F2L3L = right
+T1F2M3M = down
+T1F2R3R = left
+T1F3L4L = hash
+T1F3M4M = asterisk
+T1F3R4R = at
+
+T1F1L2L3L = dollar
+T1F1L3L4L = right_curly_bracket
+T1F1M2M3M = page_up
+T1F1M3M4M = question
+T1F1R2R3R = backtick
+T1F1R3R4R = left_curly_bracket
+T1F2L3L4L = ampersand
+T1F2M3M4M = page_down
+T1F2R3R4R = tilde
+
+T1F1L2L3L4L = esc
+T1F1M2M3M4M = tab
+T1F1R2R3R4R = delete
+
+F1L = i
+F1M = e
+F1R = o
+F2L = n
+F2M = t
+F2R = r
+F3L = l
+F3M = h
+F3R = s
+F4L = a
+F4M = d
+F4R = u
+
+F1LM = quote
+F1MR = period
+F2LM = double_quote
+F2MR = comma
+F3LM = minus
+F3MR = pipe
+F4LM = slash
+F4MR = exclamation
+
+F1L2L = i n g
+F1L2M = h a t
+F1L3L = I
+F1L4L = A
+F1M2L = N
+F1M2M = w
+F1M2R = R
+F1M3L = L
+F1M3M = E
+F1M3R = S
+F1M4M = D
+F1R2M = T
+F1R2R = y
+F1R3M = H
+F1R3R = O
+F1R4R = U
+F2L3L = b
+F2M3M = c
+F2R3R = m
+F3L4L = f
+F3M4L = slash
+F3M4M = g
+F3R4M = exclamation
+F3R4R = p
+
+F1LM2R = left_parenthesis
+F1MR2L = right_parenthesis
+F1MR3L = colon
+F2MR3L = semicolon
+
+F1L2L3L = z
+F1L2L3M = Z
+F1L3L4L = F
+F1M2L3L = B
+F1M2M3L = W
+F1M2M3M = x
+F1M2R3R = M
+F1M3M4M = G
+F1R2M3M = C
+F1R2R3M = Y
+F1R2R3R = j
+F1R3R4R = P
+F2L3L4L = v
+F2M3M4M = k
+F2R3R4R = q
+
+F1L2L3L4L = a n d
+F1M2L3L4L = V
+F1M2M3M4L = X
+F1M2M3M4M = t h e
+F1M2R3R4R = Q
+F1R2M3M4M = K
+F1R2R3R4M = J
+F1R2R3R4R = y o u

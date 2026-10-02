@@ -1,0 +1,168 @@
+# source: https://raw.githubusercontent.com/Griatch/twiddler-configs/master/configs/mirrorwalk_twiddler.cfg
+
+[config]
+repeat = true
+mode = chord
+direct = false
+haptic = false
+sticky_num = true
+sticky_alt = false
+sticky_ctrl = false
+sticky_shift = false
+nav_up_direction = north
+nav_invert_x = false
+nav_sensitivity = 4
+idle_time = 3720
+repeat_delay = 1000
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+
+F0L = mouse_left
+F0M = mouse_middle
+F0R = mouse_right
+
+[mappings]
+T023 = system:sleep
+
+T0F1L = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1R = system:show_keyboard_leds
+T0F4L = system:show_cycle_nav_mode
+T0F4M = system:show_cycle_config
+T0F4R = system:show_cycle_bluetooth_host
+T1F1L = 9
+T1F1M = 8
+T1F1R = 7
+T1F2L = 6
+T1F2M = 5
+T1F2R = 4
+T1F3L = 3
+T1F3M = 2
+T1F3R = 1
+T1F4L = enter
+T1F4M = period
+T1F4R = 0
+T4F4L = I n g
+T4F4M = T h e
+T4F4R = A n d
+
+T12F1L = f9
+T12F1M = f5
+T12F1R = f1
+T12F2L = f10
+T12F2M = f6
+T12F2R = f2
+T12F3L = f11
+T12F3M = f7
+T12F3R = f3
+T12F4L = f12
+T12F4M = f8
+T12F4R = f4
+T14F4R = system:clear_bluetooth_hosts
+
+T1F1L2L = asterisk
+T1F1M2M = plus
+T1F1R2R = slash
+T1F2M3M = minus
+T1F2R3R = equal
+T4F1M4M = period period period space
+T4F2L4L = underscore
+T4F2M4L = backslash
+T4F2M4M = backtick
+
+T4F1M2M3L = I o n
+T4F1M2M3M = T h
+T4F1M2M3R = E n t
+
+F1L = s
+F1M = e
+F1R = i
+F2L = h
+F2M = n
+F2R = l
+F3L = m
+F3M = c
+F3R = o
+F4L = i n g
+F4M = t h e
+F4R = a n d
+
+F1L2L = b
+F1L2M = s
+F1L2R = q
+F1L3L = j
+F1L3M = w
+F1L3R = u
+F1L4L = plus
+F1L4M = right_parenthesis
+F1L4R = right_curly_bracket
+F1M2L = e
+F1M2M = space
+F1M2R = l
+F1M3L = d
+F1M3M = a
+F1M3R = r
+F1M4L = asterisk
+F1M4M = period space
+F1M4R = exclamation space
+F1R2L = v
+F1R2M = i
+F1R2R = x
+F1R3L = k
+F1R3M = c
+F1R3R = f
+F1R4L = ampersand
+F1R4M = left_parenthesis
+F1R4R = left_curly_bracket
+F2L3L = g
+F2L3M = h
+F2L3R = m
+F2L4L = minus
+F2L4M = right_bracket
+F2L4R = hash
+F2M3L = n
+F2M3M = t
+F2M3R = o
+F2M4L = slash
+F2M4M = quote
+F2M4R = pipe space
+F2R3L = z
+F2R3M = y
+F2R3R = p
+F2R4L = question
+F2R4M = left_bracket
+F2R4R = semicolon space
+F3L4L = equal
+F3L4M = greater_than
+F3L4R = at
+F3M4L = percent
+F3M4M = comma space
+F3M4R = double_quote
+F3R4L = caret
+F3R4M = less_than
+F3R4R = colon space
+
+F1M2L3L = right
+F1M2L3M = up
+F1M2L3R = left
+F1M2L4L = page_down
+F1M2L4M = down
+F1M2L4R = page_up
+F1M2M3L = i o n
+F1M2M3M = t h
+F1M2M3R = e n t
+F1M2M4L = delete
+F1M2M4M = backspace
+F1M2M4R = enter
+F1R2R3R = caps_lock
+
+F1M2L3L4L = end
+F1M2L3M4L = tab
+F1M2L3M4R = esc
+F1M2L3R4R = home
+F1R2L3L4L = insert
+F1R2R3R4R = num_lock

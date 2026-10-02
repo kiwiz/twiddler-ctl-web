@@ -1,0 +1,69 @@
+# source: https://raw.githubusercontent.com/lancegatlin/typemax/master/twiddler.cfg
+
+[config]
+repeat = true
+mode = chord
+direct = true
+haptic = false
+sticky_num = false
+sticky_alt = false
+sticky_ctrl = false
+sticky_shift = false
+nav_up_direction = north
+nav_invert_x = false
+nav_sensitivity = 0
+idle_time = 600
+repeat_delay = 1270
+
+[dedicated]
+T0 = mouse_left
+T2 = lalt
+T3 = lctrl
+T4 = lshift
+
+F0L = mouse_left
+F0M = mouse_middle
+F0R = mouse_right
+
+[mappings]
+T023 = system:sleep
+
+T0F1L = system:print_system_info
+T0F1M = system:show_battery_level
+T0F1R = system:show_keyboard_leds
+T0F4L = system:show_cycle_nav_mode
+T0F4M = system:show_cycle_config
+T0F4R = system:show_cycle_bluetooth_host
+
+T14F4R = system:clear_bluetooth_hosts
+
+F1L = r
+F1M = t
+F1R = m
+F2L = h
+F2M = n
+F2R = l
+F3L = o
+F3M = e
+F3R = i
+F4L = u
+F4M = space
+F4R = a
+
+F1L2M = z
+F1L3L = w
+F1L3M = b
+F1M2L = c
+F1M2R = v
+F1M3L = g
+F1M3M = p
+F1M3R = y
+F1M4L = q
+F1M4R = j
+F1R2R = backspace
+F1R3M = x
+F2L3M = k
+F2M3M = caps_lock
+F2M4R = enter
+
+F1M2L3L = q u

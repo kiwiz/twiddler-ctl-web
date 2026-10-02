@@ -1,0 +1,29 @@
+.slot-row {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.editor-frame {
+  overflow: hidden;
+  border: 1px solid #c5cad5;
+}
+
+.editor-frame .cm-editor {
+  min-height: 320px;
+}
+
+.editor-frame .cm-scroller {
+  overflow: auto;
+}
+
+@media (max-width: 600px) {
+  .slot-row {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+  }
+
+  .slot-row > button {
+    grid-column: 2;
+  }
+}
