@@ -9,7 +9,6 @@ import { CommandType, makeChord, makeCommand, makeConfig, makeMapping } from "..
 
 const HEADER_LENGTH = 0x80;
 const MAPPING_LENGTH = 8;
-const INDEX_COUNT = 0x20;
 
 /** @param {Uint8Array} data - 4 bytes, little-endian uint32 */
 function chordFromBytes(data) {
@@ -251,15 +250,19 @@ export class Config7 extends Serdes {
     header[12] = cfg.repeatDelay;
 
     header.set(cfg.dedicated.slice(0, 20), 0x40);
-    // The v7 index table is part of the fixed-size header. 0x80 marks a
-    // prefix with no mapping; it is not a terminator or an appended byte.
-    header.fill(0x80, 0x60, 0x60 + INDEX_COUNT);
-    mappings.forEach((mapping, index) => {
-      const prefix = chordToInt(mapping.chord) & 0x1f;
-      if (header[0x60 + prefix] === 0x80) {
-        header[0x60 + prefix] = index;
-      }
-    });
+    header.set([
+      0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+      0x08, 0x09, 0x0a, 0x0c, 0x0d, 0x0f, 0x11, 0x14,
+      0x16, 0x18, 0x1a, 0x1d, 0x80, 0x80, 0x80, 0x80,
+      0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+    ], 0x60);
+
+    // Previous chord-specific index generation; kept temporarily for easy restore.
+    // header.fill(0x80, 0x60, 0x80);
+    // mappings.forEach((mapping, index) => {
+    //   const prefix = chordToInt(mapping.chord) & 0x1f;
+    //   if (header[0x60 + prefix] === 0x80) header[0x60 + prefix] = index;
+    // });
 
     const result = new Uint8Array(dataOffset + commandDataLength);
     result.set(header);
