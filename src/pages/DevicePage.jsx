@@ -13,6 +13,7 @@ import {
   Divider,
   Grid,
   IconButton,
+  Link,
   Paper,
   MenuItem,
   Stack,
@@ -118,6 +119,7 @@ export function DevicePage({ page, showLoadScreen, handleOpenSlotConfig }) {
   const { layouts, layout, configuredLayoutState } = useLayout();
   const {
     driveHandle,
+    canSyncConfigFiles,
     slotFilenames,
     slotSyncStatuses,
     syncing,
@@ -364,6 +366,14 @@ export function DevicePage({ page, showLoadScreen, handleOpenSlotConfig }) {
                 </Stack>
                 {hasConfigDirectory ? (
                   <>
+                    {!canSyncConfigFiles && (
+                      <Alert severity="warning">
+                        Chrome on Windows does not permit access to .CFG files. See{" "}
+                        <Link href="https://issues.chromium.org/issues/380857453" target="_blank" rel="noopener noreferrer">
+                          here
+                        </Link>{" "}for details.
+                      </Alert>
+                    )}
                     <Stack spacing={1.5}>
                       {[1, 2, 3].map((slot) => (
                         <Box className="slot-row" key={slot}>
@@ -391,7 +401,7 @@ export function DevicePage({ page, showLoadScreen, handleOpenSlotConfig }) {
                         </Box>
                       ))}
                     </Stack>
-                    <Button variant="contained" onClick={() => handleSync(deviceLayout)} disabled={syncing || !layouts.length || !hasDirectoryPicker}>
+                    <Button variant="contained" onClick={() => handleSync(deviceLayout)} disabled={syncing || !canSyncConfigFiles || !layouts.length || !hasDirectoryPicker}>
                       {syncing ? "Syncing…" : "Sync to Twiddler"}
                     </Button>
                   </>

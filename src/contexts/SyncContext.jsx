@@ -1,9 +1,11 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { BinaryLog, layoutExists, normalizeStr, pickTwiddlerDrive } from "../lib/index.js";
 import {
+  canAccessConfigSyncFiles,
   directoryPickerHelp,
   checkUppercaseSlotConfigs,
   getSyncConfigFileHandle,
+  isNameNotAllowedError,
   listConfigFiles,
   parseSyncConfig,
   persistSyncConfig,
@@ -46,6 +48,7 @@ export function SyncProvider({ children }) {
   const { clearPracticeConfig } = usePractice();
   const { confirmSourceChange, resetEditor } = useEditor();
   const [driveHandle, setDriveHandle] = useState(null);
+  const [canSyncConfigFiles, setCanSyncConfigFiles] = useState(true);
   const [slotFilenames, setSlotFilenames] = useState({
     1: "default.tctl.txt",
     2: "default.tctl.txt",
@@ -63,7 +66,7 @@ export function SyncProvider({ children }) {
 
   const refreshSlotSyncStatuses = useCallback(async (selectedLayout, isCurrent = () => true) => {
     const sourceDirectoryHandle = configsHandle;
-    if (!driveHandle || !sourceDirectoryHandle || !selectedLayout || syncing) {
+    if (!driveHandle || !sourceDirectoryHandle || !selectedLayout || syncing || !canSyncConfigFiles) {
       return;
     }
 
@@ -78,13 +81,13 @@ export function SyncProvider({ children }) {
     } catch (error) {
       if (isCurrent()) {
         setSlotSyncStatuses({
-          1: { state: "error", message: `Check failed: ${error.message}` },
-          2: { state: "error", message: `Check failed: ${error.message}` },
-          3: { state: "error", message: `Check failed: ${error.message}` },
+          1: { state: "error", message: error.message },
+          2: { state: "error", message: error.message },
+          3: { state: "error", message: error.message },
         });
       }
     }
-  }, [driveHandle, configsHandle, syncing, slotFilenames]);
+  }, [driveHandle, configsHandle, syncing, canSyncConfigFiles, slotFilenames]);
 
   useEffect(() => {
     let active = true;
@@ -226,8 +229,10 @@ export function SyncProvider({ children }) {
       const handle = await pickTwiddlerDrive();
       await validateTwiddlerDrive(handle);
       await validateConfigsDirectory(configsHandle, handle);
+      const canSyncConfigFiles = await canAccessConfigSyncFiles(handle);
       setDriveHandle(handle);
-      setSlotSyncStatuses(makeIdleSyncStatuses());
+      setCanSyncConfigFiles(canSyncConfigFiles);
+      setSlotSyncStatuses(makeIdleSyncStatuses(canSyncConfigFiles ? "Not synced yet" : "Unknown"));
       setHasDriveLog(false);
       setDecodedDriveLog(null);
       setDeviceInfo(null);
@@ -343,10 +348,15 @@ export function SyncProvider({ children }) {
         setSlotSyncStatuses((current) => ({ ...current, [slot]: status }));
       });
     } catch (error) {
-      setNotice({
-        severity: error.name === "AbortError" ? "warning" : "error",
-        message: error.name === "AbortError" ? "Drive selection cancelled; sync was not run." : `Sync failed: ${error.message}`,
-      });
+      if (isNameNotAllowedError(error)) {
+        setCanSyncConfigFiles(false);
+        setSlotSyncStatuses(makeIdleSyncStatuses("Unknown"));
+      } else {
+        setNotice({
+          severity: error.name === "AbortError" ? "warning" : "error",
+          message: error.name === "AbortError" ? "Drive selection cancelled; sync was not run." : `Sync failed: ${error.message}`,
+        });
+      }
     } finally {
       setSyncing(false);
     }
@@ -355,18 +365,22 @@ export function SyncProvider({ children }) {
   const updateSlotFilename = (slot, value, selectedLayout = layout) => {
     const next = { ...slotFilenames, [slot]: value };
     setSlotFilenames(next);
-    setSlotSyncStatuses((current) => ({ ...current, [slot]: { state: "idle", message: "Needs sync" } }));
+    setSlotSyncStatuses((current) => ({
+      ...current,
+      [slot]: { state: "idle", message: canSyncConfigFiles ? "Needs sync" : "Unknown" },
+    }));
     if (configsHandle) queueSyncConfig(configsHandle, selectedLayout, next);
   };
 
   const handleLayoutChange = (value) => {
     setLayout(value);
-    setSlotSyncStatuses(makeIdleSyncStatuses("Layout changed; sync to update"));
+    setSlotSyncStatuses(makeIdleSyncStatuses(canSyncConfigFiles ? "Layout changed; sync to update" : "Unknown"));
     if (configsHandle) queueSyncConfig(configsHandle, value, slotFilenames);
   };
 
   const value = {
     driveHandle,
+    canSyncConfigFiles,
     slotFilenames,
     slotSyncStatuses,
     syncing,

@@ -12,7 +12,7 @@ export async function isTwiddlerDrive(directoryHandle) {
 }
 
 async function missingTwiddlerDriveFiles(directoryHandle) {
-  const requiredFiles = ["0.CFG", "SETTINGS.TXT"];
+  const requiredFiles = ["INFO.TXT", "TWIDDLER.LOG"];
   const missingFiles = [];
   for (const filename of requiredFiles) {
     try {
@@ -32,6 +32,21 @@ export async function validateTwiddlerDrive(directoryHandle) {
   const missingFiles = await missingTwiddlerDriveFiles(directoryHandle);
   if (missingFiles.length) {
     throw new Error("Selected folder is not a Twiddler drive.");
+  }
+}
+
+export function isNameNotAllowedError(error) {
+  return error?.name === "TypeError" && /name is not allowed/i.test(error.message ?? "");
+}
+
+export async function canAccessConfigSyncFiles(directoryHandle) {
+  try {
+    await directoryHandle.getFileHandle("0.CFG");
+    return true;
+  } catch (error) {
+    if (error.name === "NotFoundError") return true;
+    if (isNameNotAllowedError(error)) return false;
+    throw error;
   }
 }
 
@@ -76,6 +91,18 @@ export async function getFileHandleByPath(directoryHandle, relativePath) {
   return parent.getFileHandle(parts.at(-1));
 }
 
+async function compileSourceConfig(directoryHandle, filename, layout) {
+  try {
+    const fileHandle = await getFileHandleByPath(directoryHandle, filename);
+    return await compileConfigFile(fileHandle, layout);
+  } catch (error) {
+    if (error.name === "NotFoundError") {
+      throw new Error("File not found");
+    }
+    throw error;
+  }
+}
+
 export function parseSyncConfig(contents) {
   const result = { layout: "", configs: {} };
   let section = "";
@@ -115,7 +142,7 @@ export async function getSyncConfigFileHandle(directoryHandle) {
     try {
       return await directoryHandle.getFileHandle(filename);
     } catch (error) {
-      if (error.name !== "NotFoundError") throw error;
+      if (error.name !== "NotFoundError" && !isNameNotAllowedError(error)) throw error;
     }
   }
   return null;
@@ -140,8 +167,7 @@ export async function syncUppercaseSlotConfigs(driveHandle, configsHandle, slotF
     const filename = `${slot}.CFG`;
     onStatus(slot, { state: "syncing", message: "Syncing…" });
     try {
-      const sourceHandle = await getFileHandleByPath(configsHandle, slotFilenames[slot]);
-      const newBytes = await compileConfigFile(sourceHandle, layout);
+      const newBytes = await compileSourceConfig(configsHandle, slotFilenames[slot], layout);
       let targetHandle = await getExactDriveFileHandle(driveHandle, filename);
       const currentBytes = targetHandle
         ? new Uint8Array(await (await targetHandle.getFile()).arrayBuffer())
@@ -172,8 +198,7 @@ export async function checkUppercaseSlotConfigs(driveHandle, configsHandle, slot
   for (const slot of [1, 2, 3]) {
     const filename = `${slot}.CFG`;
     try {
-      const sourceHandle = await getFileHandleByPath(configsHandle, slotFilenames[slot]);
-      const expectedBytes = await compileConfigFile(sourceHandle, layout);
+      const expectedBytes = await compileSourceConfig(configsHandle, slotFilenames[slot], layout);
       let targetHandle;
       try {
         targetHandle = await driveHandle.getFileHandle(filename);
@@ -187,7 +212,7 @@ export async function checkUppercaseSlotConfigs(driveHandle, configsHandle, slot
         ? { state: "success", message: "Synced" }
         : { state: "idle", message: "Needs sync" };
     } catch (error) {
-      statuses[slot] = { state: "error", message: `Check failed: ${error.message}` };
+      statuses[slot] = { state: "error", message: error.message };
     }
   }
   return statuses;
