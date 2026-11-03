@@ -7,10 +7,11 @@
     "node": ">=20.19.0"
   },
   "scripts": {
-    "predev": "node scripts/copy-layout-data.mjs",
+    "predev": "npm run generate-pwa-assets && node scripts/copy-layout-data.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/copy-layout-data.mjs",
+    "prebuild": "npm run generate-pwa-assets && node scripts/copy-layout-data.mjs",
     "build": "vite build",
+    "generate-pwa-assets": "pwa-assets-generator --config pwa-assets.config.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
+    "@vite-pwa/assets-generator": "^1.0.4",
     "eslint": "^9.39.5",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",

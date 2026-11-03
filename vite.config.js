@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["pwa-icon.svg"],
+      includeAssets: ["pwa-icon.svg", "favicon.ico", "apple-touch-icon-180x180.png"],
       manifest: {
         name: "twiddler-ctl",
         short_name: "twiddler-ctl",
@@ -23,15 +23,30 @@ export default defineConfig({
         theme_color: "#1f6feb",
         icons: [
           {
-            src: "pwa-icon.svg",
-            sizes: "any",
-            type: "image/svg+xml",
-            purpose: "any",
+            src: "pwa-64x64.png",
+            sizes: "64x64",
+            type: "image/png",
+          },
+          {
+            src: "pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "maskable-icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
           },
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{css,html,js,json,svg,webmanifest}"],
+        globPatterns: ["**/*.{css,html,ico,js,json,png,svg,webmanifest}"],
         globIgnores: ["samples/**"],
       },
     }),

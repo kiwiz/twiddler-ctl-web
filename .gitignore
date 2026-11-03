@@ -2,3 +2,5 @@
 /dist/
 /public/layouts/
 /public/samples/
+/public/*.ico
+/public/*.png

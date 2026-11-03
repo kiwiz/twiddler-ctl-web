@@ -3,7 +3,13 @@
   <desc id="description">A cropped matrix of round and elongated chorded keyboard buttons.</desc>
   <rect width="512" height="512" rx="112" fill="#1f6feb" />
 
-  <g fill="#f8fbff">
+  <defs>
+    <clipPath id="background-clip" clipPathUnits="userSpaceOnUse">
+      <rect width="512" height="512" rx="112" />
+    </clipPath>
+  </defs>
+
+  <g fill="#f8fbff" clip-path="url(#background-clip)">
     <!-- Three circular keys -->
     <circle cx="94" cy="64" r="40" />
     <circle cx="256" cy="64" r="40" />
@@ -14,7 +20,7 @@
     <rect x="218" y="176" width="76" height="160" rx="38" />
     <rect x="380" y="176" width="76" height="160" rx="38" />
 
-    <!-- Repeated vertical keys, clipped by the bottom edge. -->
+    <!-- Bottom row is cropped flush at the background edge. -->
     <rect x="56" y="368" width="76" height="160" rx="38" />
     <rect x="218" y="368" width="76" height="160" rx="38" />
     <rect x="380" y="368" width="76" height="160" rx="38" />
