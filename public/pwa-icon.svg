@@ -11,18 +11,18 @@
 
   <g fill="#f8fbff" clip-path="url(#background-clip)">
     <!-- Three circular keys -->
-    <circle cx="94" cy="64" r="40" />
-    <circle cx="256" cy="64" r="40" />
-    <circle cx="418" cy="64" r="40" />
+    <circle cx="102" cy="102" r="48" />
+    <circle cx="256" cy="102" r="48" />
+    <circle cx="410" cy="102" r="48" />
 
-    <!-- Vertical long keys; all rows share the same 192-unit center spacing. -->
-    <rect x="56" y="176" width="76" height="160" rx="38" />
-    <rect x="218" y="176" width="76" height="160" rx="38" />
-    <rect x="380" y="176" width="76" height="160" rx="38" />
+    <!-- Vertical keys, aligned with the dot columns. -->
+    <rect x="56" y="194" width="92" height="160" rx="46" />
+    <rect x="210" y="194" width="92" height="160" rx="46" />
+    <rect x="364" y="194" width="92" height="160" rx="46" />
 
     <!-- Bottom row is cropped flush at the background edge. -->
-    <rect x="56" y="368" width="76" height="160" rx="38" />
-    <rect x="218" y="368" width="76" height="160" rx="38" />
-    <rect x="380" y="368" width="76" height="160" rx="38" />
+    <rect x="56" y="398" width="92" height="160" rx="46" />
+    <rect x="210" y="398" width="92" height="160" rx="46" />
+    <rect x="364" y="398" width="92" height="160" rx="46" />
   </g>
 </svg>

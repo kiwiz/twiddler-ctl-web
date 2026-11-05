@@ -23,6 +23,16 @@ import { SourceContext } from "./components/SourceContext.jsx";
 import { directoryPickerHelp } from "./pages/syncUtils.js";
 import "./app.css";
 
+const FILE_SYSTEM_WARNING_DISMISSED_KEY = "twiddler-ctl:file-system-warning-dismissed";
+
+function isFileSystemWarningDismissed() {
+  try {
+    return window.localStorage.getItem(FILE_SYSTEM_WARNING_DISMISSED_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
 export const theme = createTheme({
   colorSchemes: {
     light: {
@@ -54,7 +64,18 @@ function AppShell() {
   } = useEditor();
   const [page, setPage] = useState(0);
   const [showLoadScreen, setShowLoadScreen] = useState(true);
-  const [showFileSystemWarning, setShowFileSystemWarning] = useState(!hasDirectoryPicker);
+  const [showFileSystemWarning, setShowFileSystemWarning] = useState(
+    () => !hasDirectoryPicker && !isFileSystemWarningDismissed(),
+  );
+
+  const dismissFileSystemWarning = () => {
+    setShowFileSystemWarning(false);
+    try {
+      window.localStorage.setItem(FILE_SYSTEM_WARNING_DISMISSED_KEY, "true");
+    } catch {
+      // Dismiss for this session even if persistent storage is unavailable.
+    }
+  };
 
   const handlePickConfigs = async () => {
     if (await loadConfigDirectory()) {
@@ -92,7 +113,7 @@ function AppShell() {
       <Container component="main" maxWidth="md" sx={{ py: { xs: 2.5, sm: 4 } }}>
         <Stack spacing={2}>
           {showFileSystemWarning && (
-            <Alert severity="warning" role="status" onClose={() => setShowFileSystemWarning(false)}>
+            <Alert severity="warning" role="status" onClose={dismissFileSystemWarning}>
               {directoryPickerHelp()}
             </Alert>
           )}
